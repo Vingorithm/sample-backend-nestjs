@@ -12,6 +12,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  // Hash password dan simpan user baru ke database
   async register(dto: AuthDto) {
     const hashedPassword = await bcrypt.hash(dto.password, 10);
 
@@ -23,6 +24,7 @@ export class AuthService {
     });
   }
 
+  // Return JWT token kalau login berhasil
   async login(dto: AuthDto) {
     const user = await this.prisma.user.findUnique({
       where: { email: dto.email },

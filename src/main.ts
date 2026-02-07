@@ -11,7 +11,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-
+  // Ini buat setting backend di localhost 3000
   await app.listen(3000);
 }
 bootstrap();
